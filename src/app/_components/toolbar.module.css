@@ -1,0 +1,14 @@
+.mainContainer{
+   @apply px-5 py-2 flex justify-between w-1/4 rounded-md mt-2 m-auto ;
+   border: 1px solid gray;
+   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.iconWrapper{
+   @apply cursor-pointer h-10 w-10 flex justify-center items-center rounded-md ;
+   &:hover , &:active{
+      background-color: #f7deff ;
+   }
+   .icons{
+      font-size: 18px;
+   }
+} 
