@@ -1,0 +1,26 @@
+
+.mainContainer{
+    @apply p-5 absolute top-1/4 left-5 w-64 rounded-md ;
+    border: 1px solid rgb(201, 201, 201);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    background-color: rgba(234, 245, 255, 0.537);
+}
+.toolItems{
+    @apply mb-5 ;
+
+    .Tooltext{
+         font-size: 15px;
+
+    }
+    .itemContainer{
+        @apply flex justify-center mt-2 ;
+
+        .colorBox{
+           @apply w-5 h-5 ms-3 rounded-md cursor-pointer ;
+           &:hover , &:active{
+            @apply  border-2 shadow-md;
+           }
+        }
+    }
+
+}
