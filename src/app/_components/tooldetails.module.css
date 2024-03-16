@@ -17,8 +17,8 @@
 
         .colorBox{
            @apply w-5 h-5 ms-3 rounded-md cursor-pointer ;
-           &:hover , &:active{
-            @apply  border-2 shadow-md;
+           &:hover , &.active{
+            @apply  border-2 shadow-md scale-150;
            }
         }
     }
