@@ -1,8 +1,18 @@
 "use client"
 import styles from './tooldetails.module.css';
-import {COLORS} from './Constants'
+import {COLORS, TOOL_ITEMS} from './Constants'
+import { useSelector } from 'react-redux';
+
 const ToolDetails = () => {
   
+
+  
+
+    const activeToolItem = useSelector((state:any)=>state.menu.activeMenuItem)
+    console.log('>>>>>>>>>>>-', activeToolItem)
+    const showStrokeToolOption = activeToolItem === TOOL_ITEMS.PENCIL;
+    const showBrushToolOption =  activeToolItem === TOOL_ITEMS.PENCIL || activeToolItem === TOOL_ITEMS.ERASER
+
     const updateBrushSize=()=>{
         console.log('>>>>>>>>>>>brush size updated')
     }
