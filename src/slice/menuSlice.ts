@@ -13,7 +13,7 @@ const initialState: menuState = {
 }
 
 export const menuSlice = createSlice({
-  name: 'counter',
+  name: 'menu',
   initialState,
   reducers: {
        menuItemClick : (state , action)=>{

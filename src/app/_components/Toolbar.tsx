@@ -6,11 +6,13 @@ import { FaArrowRotateRight } from "react-icons/fa6";
 import { MdFileDownload } from "react-icons/md";
 import styles from './toolbar.module.css'
 import {TOOL_ITEMS} from './Constants'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {menuItemClick, activeItemClick} from '@/slice/menuSlice'
+import cx from 'classnames'
 const Toolbox = () => {
 
    const dispatch = useDispatch()
+   const activeToolItem = useSelector((state:any)=>state.menu.activeMenuItem)
   const handleToolClick=(itemName:string)=>{
       dispatch(menuItemClick(itemName))
   }
@@ -18,10 +20,10 @@ const Toolbox = () => {
     return ( 
         <>
         <div className={styles.mainContainer}>
-            <div className={styles.iconWrapper} onClick={()=>handleToolClick(TOOL_ITEMS.PENCIL)}>
+            <div className={cx(styles.iconWrapper,{[styles.active]: activeToolItem === TOOL_ITEMS.PENCIL})} onClick={()=>handleToolClick(TOOL_ITEMS.PENCIL)}>
               <FaPencilAlt className={styles.icons} />
             </div>
-            <div className={styles.iconWrapper}  onClick={()=>handleToolClick(TOOL_ITEMS.ERASER)}>
+            <div className={cx(styles.iconWrapper,{[styles.active]: activeToolItem === TOOL_ITEMS.ERASER})}   onClick={()=>handleToolClick(TOOL_ITEMS.ERASER)}>
               <BsEraserFill className={styles.icons} />
             </div>
             <div className={styles.iconWrapper}>

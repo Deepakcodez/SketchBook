@@ -5,7 +5,7 @@
 }
 .iconWrapper{
    @apply cursor-pointer h-10 w-10 flex justify-center items-center rounded-md ;
-   &:hover , &:active{
+   &:hover , &.active{
       background-color: #f7deff ;
    }
    .icons{
