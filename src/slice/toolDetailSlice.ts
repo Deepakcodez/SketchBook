@@ -1,9 +1,9 @@
-import { createSlice } from '@reduxjs/toolkit'
-import {TOOL_ITEMS, COLORS } from '@/app/_components/Constants'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { TOOL_ITEMS, COLORS } from '@/app/_components/Constants';
 
 export interface ToolState {
-    color : string,
-    size  : Number 
+    color: string;
+    size: number; // Corrected the type from Number to number
 }
 
 const initialState: Record<string, ToolState> = {
@@ -16,33 +16,33 @@ const initialState: Record<string, ToolState> = {
         size: 3
     },
     [TOOL_ITEMS.UNDO]: {
-        color: COLORS.BLACK, // Example color
-        size: 3 // Example size
+        color: COLORS.BLACK,
+        size: 3
     },
     [TOOL_ITEMS.REDO]: {
-        color: COLORS.BLACK, // Example color
-        size: 3 // Example size
+        color: COLORS.BLACK,
+        size: 3
     },
     [TOOL_ITEMS.DOWNNLOAD]: {
-        color: COLORS.BLACK, // Example color
-        size: 3 // Example size
+        color: COLORS.BLACK,
+        size: 3
     },
-}
+};
 
 export const ToolDetailSlice = createSlice({
     name: 'ToolDetail',
     initialState,
     reducers: {
-        changeColor : (state , action)=>{
-           state[action.payload.item].color = action.payload.color
-         },
-         changeBrushSize : (state , action)=>{
-            state[action.payload.item].size = action.payload.size
+        changeColor: (state, action: PayloadAction<{ item: string; color: string }>) => {
+            state[action.payload.item].color = action.payload.color;
+        },
+        changeBrushSize: (state, action: PayloadAction<{ item: string; size: number }>) => {
+            state[action.payload.item].size = action.payload.size;
         },
     },
-  })
-  
-  // Action creators are generated for each case reducer function
-  export const {changeColor,  changeBrushSize } = ToolDetailSlice.actions
-  
-  export default ToolDetailSlice.reducer
+});
+
+// Action creators are generated for each case reducer function
+export const { changeColor, changeBrushSize } = ToolDetailSlice.actions;
+
+export default ToolDetailSlice.reducer;
