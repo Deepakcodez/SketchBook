@@ -15,9 +15,18 @@ const initialState: Record<string, ToolState> = {
         color: COLORS.WHITE,
         size: 3
     },
-    [TOOL_ITEMS.UNDO]: {},
-    [TOOL_ITEMS.REDO]: {},
-    [TOOL_ITEMS.DOWNNLOAD]: {},
+    [TOOL_ITEMS.UNDO]: {
+        color: COLORS.BLACK, // Example color
+        size: 3 // Example size
+    },
+    [TOOL_ITEMS.REDO]: {
+        color: COLORS.BLACK, // Example color
+        size: 3 // Example size
+    },
+    [TOOL_ITEMS.DOWNNLOAD]: {
+        color: COLORS.BLACK, // Example color
+        size: 3 // Example size
+    },
 }
 
 export const ToolDetailSlice = createSlice({
