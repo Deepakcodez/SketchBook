@@ -41,7 +41,7 @@ const ToolDetails = () => {
             <div className={styles.toolItems}>
                 <h1 className={styles.Tooltext}>Brush Size</h1>
                 <div className={styles.itemContainer} >
-                   <input type="range" min={1} max={10} step={1} onChange={updateBrushSize} />
+                   <input type="range" min={1} max={100} step={2} onChange={updateBrushSize} />
                 </div>
             </div>
         </div>
