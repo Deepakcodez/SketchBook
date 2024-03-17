@@ -1,4 +1,5 @@
 "use client"
+import React, { ChangeEvent } from 'react';
 import styles from './tooldetails.module.css';
 import {COLORS, TOOL_ITEMS} from './Constants'
 import { useDispatch, useSelector } from 'react-redux';
