@@ -1,19 +1,46 @@
 "use client"
 import { useEffect, useLayoutEffect, useRef } from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import { TOOL_ITEMS } from "./Constants";
+import {menuItemClick, activeItemClick} from '@/slice/menuSlice'
 
 const Board = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const shouldDraw = useRef<boolean>(false);
     const dispatch = useDispatch();
 
-    const activeToolItem = useSelector((state: any) => state.menu.activeMenuItem);
-    const { color, size }: { color: string; size: number } = useSelector((state: any) => state.toolDetail[activeToolItem]);
+    const {activeMenuItem, actionMenuItem} = useSelector((state:any)=>state.menu)
+        console.log('>>>>>>>>>>>ati', activeMenuItem)
+    const { color, size }: { color: string; size: number } = useSelector((state: any) => state.toolDetail[activeMenuItem]);
+ 
+
+
+
+
+
+  useEffect(()=>{
+    if (!canvasRef.current) return;
+    const canvas = canvasRef.current;
+    const context = canvas.getContext("2d");
+
+    if(actionMenuItem === TOOL_ITEMS.DOWNLOAD){
+
+        const URL = canvas.toDataURL();
+        const anchor =  document.createElement('a');
+        anchor.href = URL;
+        anchor.download = `my_sketch${Math.random()*10}.jpeg`
+        anchor.click()
+        dispatch(activeItemClick(null))
+        // console.log('>>>>>>>>>>>', URL)
+    }
+  },[actionMenuItem])
+  
 
     useEffect(() => {
         if (!canvasRef.current) return;
         const canvas = canvasRef.current;
         const context = canvas.getContext("2d");
+        
 
         const changeConfig = () => {
             if (context) {
@@ -23,7 +50,7 @@ const Board = () => {
         };
 
         changeConfig(); // Call changeConfig outside the function
-
+        
         console.log('>>>>>>>>>>>', color, size);
 
     }, [color, size]);

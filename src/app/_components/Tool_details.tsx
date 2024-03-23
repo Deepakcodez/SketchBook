@@ -15,7 +15,9 @@ const ToolDetails = () => {
     console.log('>>>>>>>>>>>-', activeToolItem)
     const showStrokeToolOption = activeToolItem === TOOL_ITEMS.PENCIL;
     const showBrushToolOption =  activeToolItem === TOOL_ITEMS.PENCIL || activeToolItem === TOOL_ITEMS.ERASER
-   
+    
+
+    console.log('>>>>>>>>>>>', showStrokeToolOption)
     const updateBrushSize = (e: ChangeEvent<HTMLInputElement>) =>{
         dispatch(changeBrushSize({item : activeToolItem ,  size: parseInt(e.target.value) }));
     }
@@ -26,6 +28,8 @@ const ToolDetails = () => {
     return ( 
         <>
         <div className={styles.mainContainer}>
+            {
+                showStrokeToolOption &&
             <div className={styles.toolItems}>
                 <h1 className={styles.Tooltext}>Stroke Color</h1>
                 <div className={styles.itemContainer} >
@@ -38,10 +42,12 @@ const ToolDetails = () => {
                     <div className={cx(styles.colorBox, {[styles.active]: color === COLORS.YELLOW})}  style={{backgroundColor : COLORS.YELLOW}}    onClick={()=>updateColor(COLORS.YELLOW)}/>
                 </div>
             </div>
+
+            }
             <div className={styles.toolItems}>
-                <h1 className={styles.Tooltext}>Brush Size</h1>
+                <h1 className={styles.Tooltext}>Size</h1>
                 <div className={styles.itemContainer} >
-                   <input type="range" min={1} max={100} step={2} onChange={updateBrushSize} />
+                   <input type="range" min={1} max={10} step={2} onChange={updateBrushSize} />
                 </div>
             </div>
         </div>

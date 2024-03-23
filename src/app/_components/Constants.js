@@ -13,7 +13,7 @@ const TOOL_ITEMS = {
     ERASER : "ERASER",
     UNDO : "UNDO",
     REDO : "REDO",
-    DOWNNLOAD : "DOWNNLOAD"
+    DOWNLOAD : "DOWNLOAD"
 }
 
 export {COLORS,TOOL_ITEMS}

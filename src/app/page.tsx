@@ -6,9 +6,12 @@ import Board from "./_components/Board";
 export default function Home() {
   return (
     <>
+    <div className="relative flex  justify-center">
+
      <Toolbox/>
      <ToolDetails/>
      <Board/>
+    </div>
     </>
   );
 }
