@@ -94,10 +94,11 @@ const Board = () => {
 
         const handleMouseUp = () => {
             shouldDraw.current = false;
-            const imageData = context?.getImageData(0, 0, canvas.width, canvas.height);
-            drawHistory.current.push(imageData);
-            drawPointer.current = drawHistory.current.length - 1;
-
+            const imageData: ImageData | undefined = context?.getImageData(0, 0, canvas.width, canvas.height);
+            if (imageData) {
+                drawHistory.current.push(imageData);
+                drawPointer.current = drawHistory.current.length - 1;
+            }
 
 
         };
