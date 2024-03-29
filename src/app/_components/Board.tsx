@@ -9,7 +9,7 @@ const Board = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const shouldDraw = useRef<boolean>(false);
     const dispatch = useDispatch();
-    const drawHistory = useRef<Array>([]);
+    const drawHistory = useRef([]);
     const drawPointer = useRef(0)
 
     const {activeMenuItem, actionMenuItem} = useSelector((state:any)=>state.menu)
